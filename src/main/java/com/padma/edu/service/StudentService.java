@@ -2,6 +2,7 @@ package com.padma.edu.service;
 
 import com.padma.edu.model.Student;
 import com.padma.edu.student.StudentRepository;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class StudentService {
             new Student("Rapunzel",25,103,'F',"New Delhi",'B'),
             new Student("Elsa",22,104,'F',"Trivandrum",'A')
     ));*/
+
 
     public List<Student> getAllStudents()
     {
