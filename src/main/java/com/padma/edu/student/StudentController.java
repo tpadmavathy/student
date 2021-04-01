@@ -1,6 +1,7 @@
 package com.padma.edu.student;
 
 import com.padma.edu.exception.EmptyRepositoryException;
+import com.padma.edu.exception.StudentNotFoundException;
 import com.padma.edu.model.Student;
 import com.padma.edu.service.StudentService;
 import io.swagger.annotations.Api;
@@ -27,7 +28,7 @@ public class StudentController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/students/{roll}", produces={"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "Gets Student with a specific rollNo")
-    public Optional<Student> getStudent(@PathVariable("roll") Integer rollNo) {
+    public Optional<Student> getStudent(@PathVariable("roll") Integer rollNo) throws StudentNotFoundException {
         return studentService.getStudent(rollNo);
     }
 
@@ -39,13 +40,13 @@ public class StudentController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/students/{roll}/update", consumes = {"application/json"})
     @ApiOperation(value = "Updates Existing Student")
-    public void updateStudent(@RequestBody Student student, @PathVariable("roll") Integer rollNo) {
+    public void updateStudent(@RequestBody Student student, @PathVariable("roll") Integer rollNo) throws StudentNotFoundException{
         studentService.updateStudent(student, rollNo);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/students/{roll}/delete", consumes = {"application/json"})
     @ApiOperation(value = "Deletes a Student")
-    public void deleteStudent(@PathVariable("roll") Integer rollNo) {
+    public void deleteStudent(@PathVariable("roll") Integer rollNo) throws StudentNotFoundException {
         studentService.deleteStudent(rollNo);
     }
 }

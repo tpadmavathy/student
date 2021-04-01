@@ -32,5 +32,4 @@ public class Student {
     @ApiModelProperty(notes = "Grade of the Student", allowableValues = "A, B, C, D")
     private char grade;
 
-
 }
