@@ -76,11 +76,11 @@ public class StudentControllerTest {
     @Test
     public void getStudent() throws Exception{
         Student student = new Student("Jerry", 24, 102, 'M', "Chennai", 'A');
-        given(studentController.getStudent(student.getRoll_no())).willReturn(java.util.Optional.of(student));
-        mvc.perform(MockMvcRequestBuilders.get("/students/"+student.getRoll_no())
+        given(studentController.getStudent(student.getRollNo())).willReturn(java.util.Optional.of(student));
+        mvc.perform(MockMvcRequestBuilders.get("/students/"+student.getRollNo())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("roll_no", is(student.getRoll_no())));
+                .andExpect(jsonPath("roll_no", is(student.getRollNo())));
     }
 
     @Test
@@ -111,9 +111,9 @@ public class StudentControllerTest {
                 .characterEncoding("utf-8"))
                 .andExpect(status().isOk());
 
-        student.setRoll_no(123);
+        student.setRollNo(123);
 
-        mvc.perform(MockMvcRequestBuilders.put("/students/"+student.getRoll_no())
+        mvc.perform(MockMvcRequestBuilders.put("/students/"+student.getRollNo())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(student))
                 .characterEncoding("utf-8"))
@@ -125,7 +125,7 @@ public class StudentControllerTest {
     public void deleteStudent() throws Exception{
         Student student = new Student("Elsa", 26, 105, 'F', "Bangalore", 'A');
         //Mockito.when(StudentController.deleteStudent(student.getRoll_no())).thenReturn("SUCCESS");
-        mvc.perform(MockMvcRequestBuilders.delete("/students/"+student.getRoll_no()))
+        mvc.perform(MockMvcRequestBuilders.delete("/students/"+student.getRollNo()))
                 .andExpect(status().isOk());
     }
 }

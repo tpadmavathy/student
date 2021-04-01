@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.padma.edu"})
 public class StudentAppApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StudentAppApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(StudentAppApplication.class, args);
+    }
 
 }
